@@ -27,40 +27,28 @@ Backend: Express with Render Database
 
 ## Features
 
-### [Name of Feature 1]
-
-[short description goes here]
-
+### 1. Product Catalog & Browsing
+Browse CodePath merch by category (apparel, accessories, tech gear) with an intuitive filtering system to quickly find products.
 [gif goes here]
 
-### [Name of Feature 2]
-
-[short description goes here]
-
+### 2. Shopping Cart with Persistence
+Add items to cart and save them across sessions, allowing users to shop at their own pace and complete purchases later.
 [gif goes here]
 
-### [Name of Feature 3]
-
-[short description goes here]
-
+### 3. Role-Based Discounts
+Automatic discount application based on user role (Student, Tech Fellow, Staff) with clear pricing display at checkout.
 [gif goes here]
 
-### [Name of Feature 4]
-
-[short description goes here]
-
+### 4. User Authentication & Accounts
+Secure login system that identifies user roles and maintains order history for easy reordering and tracking.
 [gif goes here]
 
-### [Name of Feature 5]
-
-[short description goes here]
-
+### 5. Product Reviews & Ratings
+View and submit reviews from the CodePath community to make informed purchasing decisions about sizing and quality.
 [gif goes here]
 
-### [Name of Feature 6]
-
-[short description goes here]
-
+### 6. Admin Dashboard
+Manage product inventory, view sales analytics, and create promotional campaigns through a staff-only admin interface.
 [gif goes here]
 
 ### [ADDITIONAL FEATURES GO HERE - ADD ALL FEATURES HERE IN THE FORMAT ABOVE; you will check these off and add gifs as you complete them]
