@@ -1,4 +1,4 @@
-# University E-commerce
+# CodePath E-commerce
 
 CodePath WEB103 Final Project
 
