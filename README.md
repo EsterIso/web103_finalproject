@@ -11,7 +11,8 @@ An specialized Econmmerce Store platform based on Codepath to provide a easy one
 
 ### Description and Purpose
 
-Serve the CodePath Community: To meet demand for CodePath-branded accessories, and gear among students, Teaching Fellows, and instructors. /n
+Serve the CodePath Community: To meet demand for CodePath-branded accessories, and gear among students, Teaching Fellows, and instructors.  
+
 Brand Building: To enhance the CodePath community spirit and brand visibility by providing high-quality, desirable merchandise.
 
 ### Inspiration
