@@ -10,17 +10,17 @@ Designed and developed by: Esterlin Jerez Paulino, Rico Chen
 Sell merchant 
 ### Description and Purpose
 
-[text goes here]
+CodePath Ecommerce store to sell CodePath Merchandise. 
 
 ### Inspiration
 
-We see a gap in the market for codepath merch, so we decided to create a website for to meet the demands of students, TF's and teachers to acquire them easily. 
+We see a gap in the market for codepath merch, so we decided to create a website to meet the demands of students, TF's and teachers to acquire them easily. 
 
 ## Tech Stack
 
 Frontend: React.js
 
-Backend: Express backend with Render Database
+Backend: Express with Render Database
 
 ## Features
 
