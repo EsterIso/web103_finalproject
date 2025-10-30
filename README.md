@@ -14,7 +14,7 @@ Sell merchant
 
 ### Inspiration
 
-We see a gap in the market for codepath merch 
+We see a gap in the market for codepath merch, so we decided to create a website for to meet the demands of students, TF's and teachers to acquire them easily. 
 
 ## Tech Stack
 
