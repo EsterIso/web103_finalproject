@@ -7,20 +7,20 @@ Designed and developed by: [your names here]
 🔗 Link to deployed app:
 
 ## About
-
+Sell merchant 
 ### Description and Purpose
 
 [text goes here]
 
 ### Inspiration
 
-[text goes here]
+We see a gap in the market for codepath merch 
 
 ## Tech Stack
 
-Frontend:
+Frontend: React.js
 
-Backend:
+Backend: Express backend with Render Database
 
 ## Features
 
