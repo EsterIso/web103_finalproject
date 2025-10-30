@@ -1,0 +1,7 @@
+.header-container {
+    display: flex;
+    height: 48px;
+    width: 100%;
+    background-color: aliceblue;
+    justify-content: space-between;
+}
