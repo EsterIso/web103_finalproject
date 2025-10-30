@@ -7,7 +7,7 @@ Designed and developed by: Esterlin Jerez Paulino, Rico Chen
 🔗 Link to deployed app:
 
 ## About
-An specialized Econmmerce Store based on Codepath 
+An specialized Econmmerce Store platform based on Codepath to provide a easy one and done place for Codepath merchandise.  
 
 ### Description and Purpose
 
