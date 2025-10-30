@@ -7,10 +7,12 @@ Designed and developed by: Esterlin Jerez Paulino, Rico Chen
 🔗 Link to deployed app:
 
 ## About
-Sell merchant 
+An specialized Econmmerce Store based on Codepath 
+
 ### Description and Purpose
 
-CodePath Ecommerce store to sell CodePath Merchandise. 
+Serve the CodePath Community: To meet demand for CodePath-branded accessories, and gear among students, Teaching Fellows, and instructors.
+Brand Building: To enhance the CodePath community spirit and brand visibility by providing high-quality, desirable merchandise.
 
 ### Inspiration
 
