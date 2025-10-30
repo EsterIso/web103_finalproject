@@ -1,4 +1,4 @@
-# [your app name here]
+# University E-commerce
 
 CodePath WEB103 Final Project
 
