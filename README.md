@@ -45,6 +45,24 @@ Backend: Express with Render Database
 
 [gif goes here]
 
+### [Name of Feature 4]
+
+[short description goes here]
+
+[gif goes here]
+
+### [Name of Feature 5]
+
+[short description goes here]
+
+[gif goes here]
+
+### [Name of Feature 6]
+
+[short description goes here]
+
+[gif goes here]
+
 ### [ADDITIONAL FEATURES GO HERE - ADD ALL FEATURES HERE IN THE FORMAT ABOVE; you will check these off and add gifs as you complete them]
 
 ## Installation Instructions
