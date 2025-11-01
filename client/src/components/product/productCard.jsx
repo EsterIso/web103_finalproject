@@ -7,3 +7,5 @@ function ProductCard() {
         </div>
     )
 }
+
+export default ProductCard;

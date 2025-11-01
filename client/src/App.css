@@ -5,3 +5,27 @@
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
+.main{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.showcase video{
+  width: 100vw;
+  display: block;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  background-color: aliceblue;
+  padding: 16px;
+}
+
+input {
+  width: 40%;
+}

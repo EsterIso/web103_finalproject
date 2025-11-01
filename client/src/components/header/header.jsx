@@ -4,7 +4,7 @@ function Header() {
     return (
         <div className='header-container'>
             <div className='title'>
-                CodePath
+                <img src="codepath.jpg" alt="CodePath" />
             </div>
             <nav>
                 <button>a</button>
