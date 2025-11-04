@@ -13,7 +13,7 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 
 ## Wireframe 1: HomePage
 
-[👉🏾👉🏾👉🏾 include wireframe 1]
+[!HomePage](./wireframe-images/HomePage.png)
 
 ## Wireframe 2: [page title]
 
