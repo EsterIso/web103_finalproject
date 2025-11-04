@@ -11,13 +11,15 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 - Product Page
 - Cart Page
 
+![HomePage](./wireframe-images/HomePage(1).png)
+
 ## Wireframe 1: HomePage
 
-[!HomePage](./wireframe-images/HomePage.png)
+![HomePage](./wireframe-images/HomePage.png)
 
-## Wireframe 2: [page title]
+## Wireframe 2: Product Page
 
-[👉🏾👉🏾👉🏾 include wireframe 2]
+
 
 ## Wireframe 3: [page title]
 
