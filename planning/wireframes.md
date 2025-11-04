@@ -5,7 +5,9 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 ## List of Pages
 
 - HomePage
-- Admin (edit products)
+- Admin 
+  - main page(show current products)
+  - edit products
 - Product Page
 - Cart Page
 
