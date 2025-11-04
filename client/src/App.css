@@ -28,4 +28,6 @@
 
 input {
   width: 40%;
+  height: 2rem;
+  border-radius: 10px;
 }

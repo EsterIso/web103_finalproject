@@ -11,7 +11,7 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 - Product Page
 - Cart Page
 
-## Wireframe 1: [page title]
+## Wireframe 1: HomePage
 
 [👉🏾👉🏾👉🏾 include wireframe 1]
 
