@@ -17,12 +17,5 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 
 ![HomePage](./wireframe-images/HomePage.png)
 
-## Wireframe 2: Product Page
-
-
-
-## Wireframe 3: [page title]
-
-[👉🏾👉🏾👉🏾 include wireframe 3]
-
-[👉🏾👉🏾👉🏾 include more wireframes as desired]
+## Wireframe 2/3: Hero/Login/Register Page
+https://www.figma.com/design/dwvSpWNcCGkb3fiDmdKEYq/Codepath-Final-Project-wireframe?node-id=0-1&t=UWzWq35FmdgP7YtP-1 
