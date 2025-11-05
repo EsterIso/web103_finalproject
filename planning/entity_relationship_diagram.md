@@ -1,1 +1,178 @@
-Entity Relationship Diagram (ERD) OutlineThis ERD represents the database structure for CodePath Merch Central. It focuses on separating core e-commerce functions (Products, Orders) from specialized CodePath features (Users, Roles, Bundles) to ensure maximum flexibility and data integrity.Create the List of TablesUsersRolesProductsCategoriesInventory (Handles stock/variants like size and color)ReviewsDiscounts (For promotional and student codes)CartsCartItems (Handles active cart and "saved for later")OrdersOrderLineItems (Records what was purchased and at what price)Bundles (For Professor-created cohort packs)BundleItemsEntity Relationship Diagram (Schema Details)1. Users (Handles CodePath Roles)Column NameTypeDescriptionuser_idUUIDPrimary Key. (This would typically map to the CodePath user ID or Firebase UID).role_idintegerForeign Key to Roles. Defines the user's status (Student, TF, Staff).first_nametextUser's first name.last_nametextUser's last name.emailtextUser's email (Unique).2. Roles (Manages Automatic Discounts)Column NameTypeDescriptionrole_idintegerPrimary Key.nametextRole name (e.g., 'Student', 'Tech Fellow', 'Staff', 'Professor').default_discount_ratedecimalThe automatic, non-promotional discount applied to this role (e.g., 0.15 for Tech Fellows).3. Products (The Merch Items)Column NameTypeDescriptionproduct_idUUIDPrimary Key.category_idintegerForeign Key to Categories. (For easy browsing).nametextProduct name (e.g., 'CodePath T-Shirt').descriptiontextDetailed product description.base_pricedecimalThe standard price before any discounts.image_urltextLink to the main product image.average_ratingdecimalCalculated average of linked reviews (for display).4. Categories (Browsing by Type)Column NameTypeDescriptioncategory_idintegerPrimary Key.nametextCategory name (e.g., 'Apparel', 'Accessories', 'Tech Gear').5. Inventory (Stock Management)Column NameTypeDescriptioninventory_idUUIDPrimary Key.product_idUUIDForeign Key to Products.size_or_varianttextSpecific variation (e.g., 'Large', 'Blue', 'USB-C').stock_levelintegerCurrent quantity in stock (Staff inventory management).6. Reviews (Informed Decisions)Column NameTypeDescriptionreview_idUUIDPrimary Key.product_idUUIDForeign Key to Products.user_idUUIDForeign Key to Users.ratingintegerStar rating (1 to 5).review_texttextThe written review content.created_attimestampDate and time the review was posted.7. Discounts (Promotional Campaigns)Column NameTypeDescriptiondiscount_idUUIDPrimary Key.codetextThe actual code (e.g., 'DEMODAY25', 'STUDENT').discount_typetextType of discount (e.g., 'PERCENTAGE', 'FIXED_AMOUNT').valuedecimalThe percentage (0.25) or fixed amount (10.00).uses_remainingintegerNumber of times the code can be used (NULL for unlimited).expires_attimestampExpiration date (Staff management).is_activebooleanWhether the code is currently running (Staff management).8. Carts (Per-User Shopping Session)Column NameTypeDescriptioncart_idUUIDPrimary Key.user_idUUIDForeign Key to Users. One cart per user.last_updatedtimestampLast time an item was added or removed.9. CartItems (Tracking Active and Saved Items)Column NameTypeDescriptioncart_item_idUUIDPrimary Key.cart_idUUIDForeign Key to Carts.inventory_idUUIDForeign Key to Inventory (Links to specific variant/stock).quantityintegerQuantity desired.saved_for_laterbooleanTRUE if saved for later, FALSE if in active cart.10. Orders (Completed Transactions)Column NameTypeDescriptionorder_idUUIDPrimary Key.user_idUUIDForeign Key to Users.applied_discount_idUUIDForeign Key to Discounts (The promo code used, if any).order_datetimestampDate and time of purchase.total_amountdecimalThe final amount charged to the user.statustextOrder status (e.g., 'Processing', 'Shipped', 'Delivered').11. OrderLineItems (For Sales Analytics)Column NameTypeDescriptionorder_line_idUUIDPrimary Key.order_idUUIDForeign Key to Orders.product_idUUIDForeign Key to Products.variant_detailstextDetails like size/color at time of purchase (Snapshot for history).quantityintegerQuantity purchased.unit_price_at_purchasedecimalThe price used for the line item (important for sales analytics).12. Bundles (Professor Merch Packs)Column NameTypeDescriptionbundle_idUUIDPrimary Key.professor_user_idUUIDForeign Key to Users (Staff/Professor who created the bundle).nametextBundle name (e.g., 'Web Dev Essentials Cohort 1').descriptiontextDescription of the bundled items.bundle_pricedecimalThe special discounted price for the whole bundle.13. BundleItems (Products within a Bundle)Column NameTypeDescriptionbundle_item_idUUIDPrimary Key.bundle_idUUIDForeign Key to Bundles.product_idUUIDForeign Key to Products.
+# 🧢 CodePath Merch Central: Entity Relationship Diagram (ERD)
+
+This document outlines the logical structure of the database for the **CodePath Merch Central** e-commerce platform.  
+The design supports core e-commerce functions, role-based discounts, inventory management, and product ordering.
+
+---
+
+## 📘 1. List of Tables (Entities)
+
+| #  | Table Name       | Purpose |
+|----|------------------|----------|
+| 1  | **Users**        | Authentication, user info, role assignment |
+| 2  | **Roles**        | Defines user type and automatic discounts |
+| 3  | **Categories**   | For browsing products |
+| 4  | **Products**     | Base merch items like “T-Shirt” |
+| 5  | **Inventory**    | Handles stock levels and specific variants like size/color |
+| 6  | **Reviews**      | Community feedback and ratings |
+| 7  | **Carts**        | The user’s shopping session |
+| 8  | **CartItems**    | Items in the active cart or “saved for later” |
+| 9  | **Orders**       | Completed transactions |
+| 10 | **OrderLineItems** | Detailed record of items purchased in an order |
+
+---
+
+## 📗 2. Schema Details
+
+### **1. Users**
+Maps to CodePath accounts and determines role-based discounts.
+
+| Column Name | Type | Description |
+|--------------|------|-------------|
+| `user_id` | UUID | **Primary Key.** Unique identifier (e.g., Firebase UID). |
+| `role_id` | INT | **Foreign Key** → `Roles`. |
+| `first_name` | TEXT | User’s first name. |
+| `last_name` | TEXT | User’s last name. |
+| `email` | TEXT | User’s email (**UNIQUE**). |
+| `created_at` | TIMESTAMP | Account creation date. |
+
+---
+
+### **2. Roles**
+Defines user categories and associated automatic benefits.  
+*(User Story: Tech Fellow discount)*
+
+| Column Name | Type | Description |
+|--------------|------|-------------|
+| `role_id` | INT | **Primary Key.** |
+| `name` | TEXT | Role name (e.g., `Student`, `Tech Fellow`, `Staff`, `Professor`). |
+| `default_discount_rate` | DECIMAL(3,2) | Automatic discount applied (e.g., `0.15` for 15% off). |
+
+---
+
+### **3. Categories**
+For product filtering.  
+*(User Story: Browse merch by category)*
+
+| Column Name | Type | Description |
+|--------------|------|-------------|
+| `category_id` | INT | **Primary Key.** |
+| `name` | TEXT | Category name (e.g., `Apparel`, `Tech Gear`). |
+
+---
+
+### **4. Products**
+The base item in the store.
+
+| Column Name | Type | Description |
+|--------------|------|-------------|
+| `product_id` | UUID | **Primary Key.** |
+| `category_id` | INT | **Foreign Key** → `Categories`. |
+| `name` | TEXT | Product name (e.g., “CodePath Hoodie”). |
+| `description` | TEXT | Detailed product description. |
+| `base_price` | DECIMAL(10,2) | Standard retail price before any discounts. |
+| `image_url` | TEXT | Link to the main product image. |
+| `average_rating` | DECIMAL(2,1) | Pre-calculated average of linked reviews. |
+
+---
+
+### **5. Inventory**
+Handles stock management for variants.  
+*(User Story: Staff manage inventory)*
+
+| Column Name | Type | Description |
+|--------------|------|-------------|
+| `inventory_id` | UUID | **Primary Key.** |
+| `product_id` | UUID | **Foreign Key** → `Products`. |
+| `variant_name` | TEXT | Specific variation (e.g., “Size: Large”, “Color: Blue”). |
+| `stock_level` | INT | Current quantity in stock. |
+
+---
+
+### **6. Reviews**
+For community feedback.  
+*(User Story: See product reviews and ratings)*
+
+| Column Name | Type | Description |
+|--------------|------|-------------|
+| `review_id` | UUID | **Primary Key.** |
+| `product_id` | UUID | **Foreign Key** → `Products`. |
+| `user_id` | UUID | **Foreign Key** → `Users`. |
+| `rating` | INT | Star rating (1–5). |
+| `review_text` | TEXT | The body of the review. |
+| `created_at` | TIMESTAMP | Date/time the review was posted. |
+
+---
+
+### **7. Carts**
+Represents the user’s active or saved shopping session.
+
+| Column Name | Type | Description |
+|--------------|------|-------------|
+| `cart_id` | UUID | **Primary Key.** |
+| `user_id` | UUID | **Foreign Key** → `Users` (one cart per user). |
+| `last_updated` | TIMESTAMP | Last modification time. |
+
+---
+
+### **8. CartItems**
+Items within the cart.  
+*(User Story: Add items to my cart and save them for later)*
+
+| Column Name | Type | Description |
+|--------------|------|-------------|
+| `cart_item_id` | UUID | **Primary Key.** |
+| `cart_id` | UUID | **Foreign Key** → `Carts`. |
+| `inventory_id` | UUID | **Foreign Key** → `Inventory`. |
+| `quantity` | INT | Quantity desired. |
+| `saved_for_later` | BOOLEAN | `TRUE` = saved, `FALSE` = active cart. |
+
+---
+
+### **9. Orders**
+Final record of a successful transaction.
+
+| Column Name | Type | Description |
+|--------------|------|-------------|
+| `order_id` | UUID | **Primary Key.** |
+| `user_id` | UUID | **Foreign Key** → `Users`. |
+| `shipping_address` | TEXT | Snapshot of shipping address at order time. |
+| `role_discount_rate` | DECIMAL(3,2) | Automatic role discount snapshot. |
+| `order_date` | TIMESTAMP | Date/time of purchase. |
+| `subtotal` | DECIMAL(10,2) | Total before tax/shipping/discounts. |
+| `total_amount` | DECIMAL(10,2) | Final amount charged. |
+| `status` | TEXT | Order status (`Processing`, `Shipped`, `Delivered`). |
+
+---
+
+### **10. OrderLineItems**
+Immutable record of what was purchased.  
+*(Crucial for sales analytics)*
+
+| Column Name | Type | Description |
+|--------------|------|-------------|
+| `order_line_id` | UUID | **Primary Key.** |
+| `order_id` | UUID | **Foreign Key** → `Orders`. |
+| `product_id` | UUID | **Foreign Key** → `Products`. |
+| `variant_details` | TEXT | Snapshot of size, color, etc. |
+| `quantity` | INT | Quantity purchased. |
+| `unit_price_at_purchase` | DECIMAL(10,2) | Exact price per item after all discounts. |
+
+---
+
+## 🧩 Relationships Summary
+
+- **Users ↔ Roles** → `role_id`
+- **Products ↔ Categories**
+- **Products ↔ Inventory**
+- **Products ↔ Reviews**
+- **Users ↔ Carts** (1:1)
+- **Carts ↔ CartItems** (1:N)
+- **Orders ↔ OrderLineItems** (1:N)
+- **Users ↔ Orders** (1:N)
+
+---
+
+**Author:** CodePath Merch Central Database Design Team  
+**Version:** 1.1  
+**Date:** November 2025
