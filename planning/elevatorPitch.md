@@ -1,7 +1,6 @@
-CodePath Merch Central: The Future of Community Merch
+CodePath Merch: Community Merch For CodePath
 
-The Hook: Why We Need a Change
-
+The Hook: 
 (Time: 0:00 - 0:30)
 
 Imagine a global community of 40,000+ students, Tech Fellows, and dedicated Staff. This community deserves a merch experience that's as high-touch and personalized as the programs we run. Right now, buying CodePath gear is a generic e-commerce experience that fails to recognize and reward our core contributors. We miss out on data, personalization, and—most critically—the chance to make our TFs and students feel truly valued.
