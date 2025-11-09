@@ -1,0 +1,37 @@
+.product-card {
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-top {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    font-weight: bolder;
+}
+
+#category {
+    color: grey;
+    font-weight: normal;
+}
+
+.price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-bottom img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0 0 10px 10px;
+}

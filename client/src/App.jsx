@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useRoutes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
+import ProductPage from './pages/ProductPage'
 import Header from './components/header/header'
 import './App.css'
 
@@ -9,6 +10,10 @@ function App() {
     {
       path: '/',
       element: <HomePage/>
+    },
+    {
+      path: '/Product',
+      element: <ProductPage />
     }
   ])
   
