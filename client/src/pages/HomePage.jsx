@@ -12,12 +12,12 @@ function HomePage() {
             <div className="products-section">
                 <div className="filters">
                     <div className="grid-type">
-                        <Grid2x2 />
-                        <Grid3x3 />
+                        <button><Grid2x2 /></button>
+                        <button><Grid3x3 /></button>
                     </div>
                     <input type="search" id="product-search" name="q" placeholder="Search Merch"></input>
 
-                    <SlidersHorizontal />
+                    <button><SlidersHorizontal /></button>
                 </div>
 
                 <div className="product-grid">

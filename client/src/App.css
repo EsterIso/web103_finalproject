@@ -16,6 +16,12 @@
   display: block;
 }
 
+button {
+  display: flex;
+  margin-right: 1px;
+  border-color: transparent;
+}
+
 .filters {
   display: flex;
   align-items: center;
@@ -23,6 +29,21 @@
   height: 48px;
   background-color: aliceblue;
   padding: 16px;
+}
+
+.grid-type {
+  display: flex;
+}
+
+button:hover {
+  border: 1px solid black;
+  border-radius: 15%;
+  padding: 1px;
+}
+
+button:active {
+  background: lightgray;
+  scale: 90%;
 }
 
 input {

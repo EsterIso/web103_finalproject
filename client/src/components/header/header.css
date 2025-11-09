@@ -14,3 +14,18 @@
     margin-left: 8px;
     border-radius: 18%;
 }
+
+.header-buttons {
+    display: flex;
+}
+
+.header-buttons button:hover{
+    border: 1px solid black;
+    border-radius: 15%;
+    padding: 1px;
+}
+
+.header-buttons button:active {
+    background: lightgray;
+    scale: 90%;
+}

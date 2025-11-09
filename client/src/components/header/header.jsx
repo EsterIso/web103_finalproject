@@ -1,4 +1,6 @@
 import './header.css'
+import { ShoppingCart, UserRound } from "lucide-react";
+
 function Header() {
 
     return (
@@ -6,10 +8,10 @@ function Header() {
             <div className='title'>
                 <img src="codepath.jpg" alt="CodePath" />
             </div>
-            <nav>
-                <button>a</button>
-                <button>b</button>
-            </nav>
+            <div className='header-buttons'>
+                <button><ShoppingCart /></button>
+                <button><UserRound /></button>
+            </div>
         </div>
     )
 }
