@@ -22,15 +22,15 @@ You will need to reference the GitHub Project Management guide in the course por
 
 ### 1. What went well during this unit?
 
-[👉🏾👉🏾👉🏾 your answer here]
+In the backend, creating the Routes and Controllers were straight forward.
 
 ### 2. What were some challenges your group faced in this unit?
 
-[👉🏾👉🏾👉🏾 your answer here]
+The database schema was definitely required a clear plan as the user is linked to their shopping carts. The item in the cart can be deleted or added to, plus the order will also need to come through from the cart. This requires a lot of interconnected tables which required a complex table relations. Futhurmore, the jwt token setup was also confusing as the middleware is used to check for authentication. The next() function was something new to us.
 
 ### Did you finish all of your tasks in your sprint plan for this week? If you did not finish all of the planned tasks, how would you prioritize the remaining tasks on your list?
 
-[👉🏾👉🏾👉🏾 your answer here]
+Yes, we finished up the setup of the frontend css, the database setup and also the routes/controllers for the core of the application (shopping for items). The remaining task includes flushing out bugs and adding new features: discounts for different accounts, etc. We would of course prioritize bug fixes and key components if not already included.
 
 ### Which features and user stories would you consider “at risk”? How will you change your plan if those items remain “at risk”?
 
