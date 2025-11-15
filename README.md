@@ -39,7 +39,7 @@ Add items to cart and save them across sessions, allowing users to shop at their
 Automatic discount application based on user role (Student, Tech Fellow, Staff) with clear pricing display at checkout.
 [gif goes here]
 
-### 4. ✅User Authentication & Accounts
+### ✅4. User Authentication & Accounts
 Secure login system that identifies user roles and maintains order history for easy reordering and tracking.
 [gif goes here]
 
