@@ -1,7 +1,14 @@
 import './header.css'
+import { useNavigate } from 'react-router-dom';
 import { ShoppingCart, UserRound } from "lucide-react";
 
 function Header() {
+
+    const navigate = useNavigate();
+
+    const handleUserClick = () => {
+        navigate('/login');
+    };
 
     return (
         <div className='header-container'>
@@ -10,7 +17,7 @@ function Header() {
             </div>
             <div className='header-buttons'>
                 <button><ShoppingCart /></button>
-                <button><UserRound /></button>
+                <button onClick={handleUserClick}><UserRound /></button>
             </div>
         </div>
     )
