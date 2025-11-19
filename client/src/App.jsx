@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import ProductPage from './pages/ProductPage'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
+import CartPage from './pages/CartPage'
 import Header from './components/header/header'
 import './App.css'
 
@@ -34,6 +35,10 @@ function App() {
     {
       path: '/signup',
       element: <SignUpPage />
+    },
+    {
+      path: '/cart',
+      element: <CartPage />
     }
   ])
   

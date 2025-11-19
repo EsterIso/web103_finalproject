@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ShoppingBag } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import cartAPI from "../../services/cartAPI";
 
 
 function ProductCard({ product }) {

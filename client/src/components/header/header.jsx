@@ -30,7 +30,7 @@ function Header({ user, setUser }) {
                 <img src="/codepath.jpg" alt="CodePath" onClick={() => navigate('/')} style={{ cursor: 'pointer' }} />
             </div>
             <div className='header-buttons'>
-                <button><ShoppingCart /></button>
+                <button onClick={() => navigate('/cart')}><ShoppingCart /></button>
                 <div className='user-button-wrapper'>
                     <button onClick={handleUserClick}><UserRound /></button>
                     {user && showDropdown && (
