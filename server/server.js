@@ -6,6 +6,7 @@ import authRouter from './routes/auth.js'
 import productsRouter from './routes/products.js'
 import cartRouter from './routes/cart.js'
 import ordersRouter from './routes/orders.js'
+import paymentsRouter from './routes/payments.js'
 
 dotenv.config()
 
@@ -20,6 +21,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/products', productsRouter)
 app.use('/api/cart', cartRouter)
 app.use('/api/orders', ordersRouter)
+app.use('/api/payments', paymentsRouter)
 
 // Root endpoint
 app.get('/', (req, res) => {

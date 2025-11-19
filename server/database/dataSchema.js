@@ -1,5 +1,7 @@
 import { pool } from './database.js'
 import './dotenv.js'
+import { productData } from '../data/products.js' 
+
 // 5 relational tables: users, products, carts, orders, order_items
 const createTables = async () => {
   const createTablesQuery = `
@@ -71,5 +73,31 @@ const createTables = async () => {
   }
 }
 
-// Run the schema creation
-createTables()
+const seedProductsTable = async () => {
+  await createTables();
+  
+  productData.forEach((product) => {
+    const insertQuery = {
+      text: `INSERT INTO products (name, description, price, image_url, stock_count) 
+             VALUES ($1, $2, $3, $4, $5)`
+    }
+    const values = [
+      product.name,
+      product.description,
+      product.price,
+      product.image_url,
+      product.stock_count
+    ]
+    
+    pool.query(insertQuery, values, (err) => {
+      if(err) {
+        console.error('Error inserting product', err);
+        return;
+      }
+      console.log(`${product.name} added successfully`);
+    })
+  });
+}
+
+// Run the seeding
+seedProductsTable()
