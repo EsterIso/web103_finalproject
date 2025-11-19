@@ -58,7 +58,8 @@
   height: 2.5rem;
   background-color: #7c43dd;
   color: white;
-  border: none;
+  border: 1px solid transparent;
+  box-sizing: border-box;
   border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
@@ -71,13 +72,12 @@
 
 .login-btn:hover {
   background-color: #a673ff;
-  border: 1px solid black;
-  padding: 1px;
+  border-color: #000;
 }
 
 .login-btn:active {
   background: lightgray;
-  scale: 90%;
+  transform: scale(0.98);
 }
 
 .signup-link {

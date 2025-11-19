@@ -19,7 +19,12 @@
 button {
   display: flex;
   margin-right: 1px;
-  border-color: transparent;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  background: transparent;
+  padding: 6px;
+  border-radius: 12px;
+  align-items: center;
 }
 
 .filters {
@@ -36,14 +41,14 @@ button {
 }
 
 button:hover {
-  border: 1px solid black;
-  border-radius: 15%;
-  padding: 1px;
+  border-color: #000;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.03);
 }
 
 button:active {
   background: lightgray;
-  scale: 90%;
+  transform: scale(0.9);
 }
 
 input {

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRoutes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import ProductPage from './pages/ProductPage'
@@ -9,6 +9,15 @@ import './App.css'
 
 
 function App() {
+  const [user, setUser] = useState(null)
+  
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user')
+    if (storedUser) {
+      setUser(JSON.parse(storedUser))
+    }
+  }, [])
+
   let element = useRoutes([
     {
       path: '/',
@@ -20,7 +29,7 @@ function App() {
     },
     {
       path: '/login',
-      element: <LoginPage />
+      element: <LoginPage setUser={setUser} />
     },
     {
       path: '/signup',
@@ -30,7 +39,7 @@ function App() {
   
   return (
     <div className='app'>
-      <Header/>
+      <Header user={user} setUser={setUser} />
       { element }
     </div>
   )

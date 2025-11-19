@@ -1,13 +1,27 @@
 import './header.css'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { ShoppingCart, UserRound } from "lucide-react";
+import { ShoppingCart, UserRound, LogOut } from "lucide-react";
 
-function Header() {
+function Header({ user, setUser }) {
 
     const navigate = useNavigate();
+    const [showDropdown, setShowDropdown] = useState(false);
 
     const handleUserClick = () => {
-        navigate('/login');
+        if (user) {
+            setShowDropdown(!showDropdown);
+        } else {
+            navigate('/login');
+        }
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setUser(null);
+        setShowDropdown(false);
+        navigate('/');
     };
 
     return (
@@ -17,7 +31,17 @@ function Header() {
             </div>
             <div className='header-buttons'>
                 <button><ShoppingCart /></button>
-                <button onClick={handleUserClick}><UserRound /></button>
+                <div className='user-button-wrapper'>
+                    <button onClick={handleUserClick}><UserRound /></button>
+                    {user && showDropdown && (
+                        <div className='dropdown-menu'>
+                            <button className='dropdown-item logout-btn' onClick={handleLogout}>
+                                <LogOut size={18} />
+                                Logout
+                            </button>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     )

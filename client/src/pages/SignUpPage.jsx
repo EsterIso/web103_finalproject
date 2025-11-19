@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import authAPI from '../services/authAPI.js'
 import '../styles/login.css'
 
 export default function SignUpPage() {
@@ -18,8 +19,18 @@ export default function SignUpPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // TODO: Add fetch/connection logic here
-    console.log('Form submitted:', formData)
+    try {
+      const data = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password
+      }
+      
+      const result = authAPI.createUser(data);
+      console.log(result);
+    } catch (error) {
+      console.error(error.message);
+    }
   }
 
   return (

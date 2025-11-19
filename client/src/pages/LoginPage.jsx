@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import authAPI from '../services/authAPI'
 import '../styles/login.css'
+import { useNavigate } from 'react-router-dom'
 
-function LoginPage() {
+function LoginPage({ setUser }) {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -15,10 +17,25 @@ function LoginPage() {
     })
   }
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // TODO: Add fetch/connection logic here
-    console.log('Form submitted:', formData)
+    try {
+          const data = {
+            email: formData.email,
+            password: formData.password
+          }
+          
+          const result = await authAPI.loginUser(data);
+          console.log(result);
+          if (result.user) {
+            setUser(result.user);
+          }
+          navigate('/');
+        } catch (error) {
+          console.error(error.message);
+        }
   }
 
   return (
