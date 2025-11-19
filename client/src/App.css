@@ -78,10 +78,12 @@ input {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
+  border-bottom: 1px solid lightgrey;
 }
 
 .card-info {
   padding: 1rem;
+  border-bottom: 1px solid lightgrey;
 }
 
 .price-section {

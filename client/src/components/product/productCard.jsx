@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ShoppingBag } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 
 function ProductCard({ product }) {
@@ -7,7 +8,16 @@ function ProductCard({ product }) {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
 
-    const handleAddToCart = async () => {
+    const navigate = useNavigate();
+    const goToProduct = () => navigate(`/product/${product.id}`);
+    const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            goToProduct()
+        }
+    }
+    const handleAddToCart = async (e) => {
+        e.stopPropagation();
         const token = localStorage.getItem('token');
         if (!token) {
             setMessage("Please log in to add items to cart");
@@ -16,7 +26,11 @@ function ProductCard({ product }) {
 
         setLoading(true);
         try {
-            await cartAPI.addToCart(product.id, quantity);
+            const productData = {
+                product_id: product.id,
+                quantity: quantity
+            }
+            await cartAPI.addToCart(productData);
             setMessage("Added to cart!");
             setTimeout(() => setMessage(""), 2000);
         } catch (error) {
@@ -31,7 +45,7 @@ function ProductCard({ product }) {
     }
 
     return (
-        <article className="product-card">
+        <article className="product-card" onClick={goToProduct} onKeyDown={handleKeyDown} style={{ cursor: 'pointer' }}>
             <div className="card-top">
                 <div>
                     <h3>{product.name}</h3>
@@ -39,11 +53,7 @@ function ProductCard({ product }) {
                 </div>
                 <div className="price-section">
                     <p>${product.price}</p>
-                    <button 
-                        onClick={handleAddToCart}
-                        disabled={loading}
-                        title="Add to cart"
-                    >
+                    <button onClick={handleAddToCart} disabled={loading}title="Add to cart">
                         <ShoppingBag />
                     </button>
                 </div>

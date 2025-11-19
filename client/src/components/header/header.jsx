@@ -27,7 +27,7 @@ function Header({ user, setUser }) {
     return (
         <div className='header-container'>
             <div className='title'>
-                <img src="codepath.jpg" alt="CodePath" />
+                <img src="/codepath.jpg" alt="CodePath" onClick={() => navigate('/')} style={{ cursor: 'pointer' }} />
             </div>
             <div className='header-buttons'>
                 <button><ShoppingCart /></button>

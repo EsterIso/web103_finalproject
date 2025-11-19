@@ -24,7 +24,7 @@ function App() {
       element: <HomePage/>
     },
     {
-      path: '/Product',
+      path: '/product/:id',
       element: <ProductPage />
     },
     {
