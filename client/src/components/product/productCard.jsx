@@ -3,7 +3,6 @@ import { ShoppingBag } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import cartAPI from "../../services/cartAPI";
 
-
 function ProductCard({ product }) {
     const [quantity, setQuantity] = useState(1);
     const [loading, setLoading] = useState(false);
@@ -12,11 +11,12 @@ function ProductCard({ product }) {
     const navigate = useNavigate();
     const goToProduct = () => navigate(`/product/${product.id}`);
     const handleKeyDown = (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+        if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault()
             goToProduct()
         }
     }
+    
     const handleAddToCart = async (e) => {
         e.stopPropagation();
         const token = localStorage.getItem('token');
@@ -31,8 +31,15 @@ function ProductCard({ product }) {
                 product_id: product.id,
                 quantity: quantity
             }
-            await cartAPI.addToCart(productData);
-            setMessage("Added to cart!");
+            const result = await cartAPI.addToCart(productData);
+            
+            // Show different message based on whether item was updated or added
+            if (result.updated) {
+                setMessage("Cart updated!");
+            } else {
+                setMessage("Added to cart!");
+            }
+            
             setTimeout(() => setMessage(""), 2000);
         } catch (error) {
             setMessage("Failed to add to cart");
@@ -54,7 +61,7 @@ function ProductCard({ product }) {
                 </div>
                 <div className="price-section">
                     <p>${product.price}</p>
-                    <button onClick={handleAddToCart} disabled={loading}title="Add to cart">
+                    <button onClick={handleAddToCart} disabled={loading} title="Add to cart">
                         <ShoppingBag />
                     </button>
                 </div>

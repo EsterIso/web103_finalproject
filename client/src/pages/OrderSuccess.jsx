@@ -46,7 +46,7 @@ export default function OrderSuccess() {
           <p>Thank you for your purchase!</p>
           <p>Order ID: {orderData?.orderId}</p>
           <p>Total: ${orderData?.total?.toFixed(2)}</p>
-          <button onClick={() => navigate('/products')}>Continue Shopping</button>
+          <button onClick={() => navigate('/')}>Continue Shopping</button>
         </div>
       )}
       

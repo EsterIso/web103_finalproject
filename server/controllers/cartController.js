@@ -34,12 +34,29 @@ export const addToCart = async (req, res) => {
       cartId = (await pool.query('INSERT INTO carts (user_id) VALUES ($1) RETURNING id', [userId])).rows[0].id
     }
 
-    const insert = await pool.query(
-      'INSERT INTO cart_items (cart_id, product_id, quantity) VALUES ($1, $2, $3) RETURNING *',
-      [cartId, product_id, quantity]
+    // Check if product already exists in cart
+    const existingItem = await pool.query(
+      'SELECT id, quantity FROM cart_items WHERE cart_id=$1 AND product_id=$2',
+      [cartId, product_id]
     )
 
-    res.status(201).json(insert.rows[0])
+    let result
+    if (existingItem.rows.length > 0) {
+      // Update existing item quantity
+      const newQuantity = existingItem.rows[0].quantity + quantity
+      result = await pool.query(
+        'UPDATE cart_items SET quantity=$1 WHERE id=$2 RETURNING *',
+        [newQuantity, existingItem.rows[0].id]
+      )
+      res.json({ ...result.rows[0], updated: true })
+    } else {
+      // Insert new item
+      result = await pool.query(
+        'INSERT INTO cart_items (cart_id, product_id, quantity) VALUES ($1, $2, $3) RETURNING *',
+        [cartId, product_id, quantity]
+      )
+      res.status(201).json({ ...result.rows[0], updated: false })
+    }
   } catch (err) {
     console.error(err)
     res.status(500).json({ error: 'Server error' })
