@@ -1,0 +1,59 @@
+.order-success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: aliceblue;
+}
+
+.order-success-container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-success-container h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.order-success-container p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.order-success-container p:first-of-type {
+  margin-top: 0;
+}
+
+.order-success-container button {
+  margin-top: 2rem;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.order-success-container button:hover {
+  border-color: #000;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.order-success-container button:active {
+  background: lightgray;
+  transform: scale(0.9);
+}

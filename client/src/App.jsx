@@ -5,9 +5,9 @@ import ProductPage from './pages/ProductPage'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
 import CartPage from './pages/CartPage'
+import OrderSuccess from './pages/OrderSuccess'
 import Header from './components/header/header'
 import './App.css'
-
 
 function App() {
   const [user, setUser] = useState(null)
@@ -39,6 +39,10 @@ function App() {
     {
       path: '/cart',
       element: <CartPage />
+    },
+    {
+      path: '/order-success',
+      element: <OrderSuccess />
     }
   ])
   

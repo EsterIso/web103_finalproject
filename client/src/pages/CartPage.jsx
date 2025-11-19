@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Trash2 } from 'lucide-react'
 import cartAPI from '../services/cartAPI'
+import paymentAPI from '../services/paymentAPI'
 import '../styles/cart.css'
 
 export default function CartPage() {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [message, setMessage] = useState('')
+  const [checkoutLoading, setCheckoutLoading] = useState(false)
 
   const fetchCart = async () => {
     setLoading(true)
@@ -48,6 +50,23 @@ export default function CartPage() {
     }
   }
 
+  const handleCheckout = async () => {
+    setCheckoutLoading(true)
+    setMessage('')
+    
+    try {
+      // Create Stripe checkout session
+      const { url } = await paymentAPI.createCheckoutSession(items)
+      
+      // Redirect to Stripe Checkout URL
+      window.location.href = url
+    } catch (err) {
+      console.error('Checkout failed:', err)
+      setMessage(err.message || 'Failed to start checkout')
+      setCheckoutLoading(false)
+    }
+  }
+
   const total = items.reduce((sum, it) => sum + (Number(it.price) * Number(it.quantity)), 0)
 
   return (
@@ -79,7 +98,13 @@ export default function CartPage() {
           ))}
           <div className="cart-total">
             <h3>Total: ${total.toFixed(2)}</h3>
-            <button className="checkout-btn" disabled>Checkout</button>
+            <button 
+              className="checkout-btn" 
+              onClick={handleCheckout}
+              disabled={checkoutLoading || items.length === 0}
+            >
+              {checkoutLoading ? 'Redirecting to checkout...' : 'Checkout'}
+            </button>
           </div>
         </div>
       )}

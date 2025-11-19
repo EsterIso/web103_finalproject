@@ -1,7 +1,6 @@
 import Stripe from 'stripe'
 import { pool } from '../database/database.js'
 
-
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 // Create checkout session
@@ -36,11 +35,12 @@ export const createCheckoutSession = async (req, res) => {
       mode: 'payment',
       customer_email: userEmail,
       success_url: `${process.env.CLIENT_URL}/order-success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.CLIENT_URL}/checkout`,
+      cancel_url: `${process.env.CLIENT_URL}/cart`,
       metadata: { userId }
     })
 
-    res.json({ sessionId: session.id })
+    // Return the URL for redirecting
+    res.json({ url: session.url })
   } catch (err) {
     console.error(err)
     res.status(500).json({ error: 'Failed to create checkout session' })
